@@ -12,14 +12,9 @@
         <div id="main">
             <section id="section1" class="section">
                 <div class="inner"></div>
-                <audio src="./resource/click.mp3"></audio>
             </section>
             <section id="section2" class="section">
-                <div class="light light-1"></div>
-                <div class="light light-2"></div>
-                <div class="light light-3"></div>
-                <div class="light light-4"></div>
-                <audio src="./resource/bgm.mp3"></audio>
+                <video src="./resource/light.mp4" preload></video>
             </section>
         </div>
         <script src="./jquery-1.10.2.min.js"></script>
@@ -27,16 +22,18 @@
             (function($){
                 $('#section1').on('click', function(){
                     $(this).fadeOut();
-                    var audio1 = $(this).find('audio').get(0)
-                    var audio2 = $('#section2').find('audio').get(0);
-                    audio1.play();
+                    // var audio1 = $(this).find('audio').get(0)
+                    // var audio2 = $('#section2').find('audio').get(0);
+                    var video_light = $('#section2').find('video').get(0);
+                    // audio1.play();
+                    video_light.play()
                     setTimeout(function(){
                         $('#section2').addClass('active');
-                        audio1.pause();                     
-                        audio2.play();
-                        setTimeout(function(){
-                            audio2.pause()
-                        }, 7700);
+                        // audio1.pause();                     
+                        // audio2.play();
+                        // setTimeout(function(){
+                            // audio2.pause()
+                        // }, 7700);
                     }, 2000)
                 })
             })(window.jQuery);
