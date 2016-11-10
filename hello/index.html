@@ -7,6 +7,8 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="blank">
         <title></title>
         <link rel="stylesheet" href="./index.css">
+        <script src="./jquery-1.10.2.min.js"></script>
+        <script src="./iphone-inline-video.browser.js"></script>
     </head>
     <body>
         <div id="main">
@@ -17,19 +19,15 @@
                 <video src="./resource/light.mp4" preload  playsinline></video>
             </section>
         </div>
-        <script src="./jquery-1.10.2.min.js"></script>
-        <script src="./iphone-inline-video.browser.js"></script>
         <script>
             (function($){
-                var video_light = $('#section2').find('video').get(0);
-
-                makeVideoPlayableInline(video_light);
-
                 $('#section1').on('click', function(){
                     $(this).fadeOut();
                     // var audio1 = $(this).find('audio').get(0)
                     // var audio2 = $('#section2').find('audio').get(0);
+                    var video_light = $('#section2').find('video').get(0);
                     // audio1.play();
+                    makeVideoPlayableInline(video_light);
                     video_light.play()
                     $('#section2').addClass('active');
                     // setTimeout(function(){
@@ -40,10 +38,6 @@
                         // }, 7700);
                     // }, 2000)
                 })
-                video_light.addEventListener('ended',function(){
-                    $('#section1').fadeIn();
-                    $('#section2').removeClass('active');
-                },false);
             })(window.jQuery);
         </script>
     </body>
