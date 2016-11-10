@@ -31,7 +31,8 @@
                     var audio2 = $('#section2').find('audio').get(0);
                     audio1.play();
                     setTimeout(function(){
-                        $('#section2').addClass('active');                        
+                        $('#section2').addClass('active');
+                        audio1.pause();                     
                         audio2.play();
                         setTimeout(function(){
                             audio2.pause()
