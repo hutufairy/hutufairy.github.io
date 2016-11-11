@@ -12,6 +12,7 @@
         <div id="main">
             <section id="section1" class="section">
                 <div class="inner"></div>
+                <audio src="./resource/click.mp3"></audio>
             </section>
             <section id="section2" class="section">
                 <video src="./resource/light.mp4" preload  playsinline></video>
@@ -22,23 +23,20 @@
         <script>
             (function($){
                 var video_light = $('#section2').find('video').get(0);
+                var audio1 = $('#section1').find('audio').get(0)
 
                 makeVideoPlayableInline(video_light);
 
                 $('#section1').on('click', function(){
-                    $(this).fadeOut();
-                    // var audio1 = $(this).find('audio').get(0)
-                    // var audio2 = $('#section2').find('audio').get(0);
-                    // audio1.play();
-                    video_light.play()
-                    $('#section2').addClass('active');
-                    // setTimeout(function(){
-                        // audio1.pause();                     
-                        // audio2.play();
-                        // setTimeout(function(){
-                            // audio2.pause()
-                        // }, 7700);
-                    // }, 2000)
+                    $('#section1').fadeOut();
+                    audio1.play();
+                    setTimeout(function(){
+                        $('#section2').addClass('active');
+                        video_light.play()
+                    }, 500)
+                    setTimeout(function(){
+                        audio1.pause();
+                    }, 1000)
                 })
                 video_light.addEventListener('ended',function(){
                     $('#section1').fadeIn();
